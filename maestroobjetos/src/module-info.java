@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author Triana
+ *
+ */
+module maestroobjetos {
+}
