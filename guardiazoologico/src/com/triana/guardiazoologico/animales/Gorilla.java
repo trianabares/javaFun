@@ -11,21 +11,18 @@ public class Gorilla extends Mammal {
 	}
 	
 	// METODOS PROPIOS
-	public int throwSomething() {
+	public void throwSomething() {
 		this.setEnergyLevel(this.getEnergyLevel() - 5);
 		System.out.println("El gorila ha lanzado algo al público, su nivel de energía bajó y ahora es: " + this.getEnergyLevel());
-		return this.getEnergyLevel();
 	}
 	
-	public int eatBananas() {
+	public void eatBananas() {
 		this.setEnergyLevel(this.getEnergyLevel() + 10);
 		System.out.println("El gorila ha comido bananas, su nivel de energía subió y ahora es: " + this.getEnergyLevel());
-		return this.getEnergyLevel();
 	}
 	
-	public int climb() {
+	public void climb() {
 		this.setEnergyLevel(this.getEnergyLevel() - 10);
 		System.out.println("El gorila ha escalado, su nivel de energía bajo y ahora es: " + this.getEnergyLevel());
-		return this.getEnergyLevel();
 	}
 }
