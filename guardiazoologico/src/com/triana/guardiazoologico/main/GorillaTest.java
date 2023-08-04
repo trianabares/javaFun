@@ -14,13 +14,27 @@ public class GorillaTest {
 		gorilla.throwSomething();
 		gorilla.displayEnergy();
 		
-		System.out.println(" --- EL GORILA TREPA --- ");
-		gorilla.climb();
+		System.out.println(" --- EL GORILA LANZA ALGO --- ");
+		gorilla.throwSomething();
+		gorilla.displayEnergy();
+		
+		System.out.println(" --- EL GORILA LANZA ALGO --- ");
+		gorilla.throwSomething();
 		gorilla.displayEnergy();
 		
 		System.out.println(" --- EL GORILA COME BANANAS --- ");
 		gorilla.eatBananas();
 		gorilla.displayEnergy();
+		
+		System.out.println(" --- EL GORILA COME BANANAS --- ");
+		gorilla.eatBananas();
+		gorilla.displayEnergy();
+		
+		System.out.println(" --- EL GORILA TREPA --- ");
+		gorilla.climb();
+		gorilla.displayEnergy();
+		
+		
 	}
 
 }
