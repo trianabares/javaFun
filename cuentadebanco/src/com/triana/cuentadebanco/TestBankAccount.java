@@ -46,6 +46,8 @@ public class TestBankAccount {
 		cuentaA.retirarCuentaCorriente(100);
 		System.out.println(cuentaA.getSaldoCuentaCorriente());
 		
+		cuentaA.dineroTotal();
+		
 		System.out.println("--- CUENTA B ---");
 		
 		BankAccount cuentaB = new BankAccount();
@@ -90,8 +92,15 @@ public class TestBankAccount {
 		cuentaB.retirarCuentaCorriente(100);
 		System.out.println(cuentaB.getSaldoCuentaCorriente());
 		
+		cuentaA.dineroTotal();
+		
 		System.out.println("--- CANTIDAD DE CUENTAS DE BANCO CREADAS HASTA EL MOMENTO ---");
 		System.out.println(BankAccount.getCuentasCreadas());
+		
+		System.out.println("--- DINERO TOTAL EN EL BANCO ---");
+		BankAccount.totalDinero();
+		
+		
 	}
 
 }

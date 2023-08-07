@@ -15,11 +15,12 @@ public class BankAccount {
 	// METODOS PARA DEPOSITAR DINERO
 	public void depositarCuentaCorriente(double cantidad) {
 		this.setSaldoCuentaCorriente(this.getSaldoCuentaCorriente() + cantidad);
-		
+		BankAccount.setDineroAlmacenado(BankAccount.getDineroAlmacenado() + cantidad);
 	}
 	
 	public void depositarCuentaAhorros(double cantidad) {
 		this.setSaldoCuentaAhorros(this.getSaldoCuentaAhorros() + cantidad);
+		BankAccount.setDineroAlmacenado(BankAccount.getDineroAlmacenado() + cantidad);
 		
 	}
 	
@@ -29,6 +30,7 @@ public class BankAccount {
 			System.out.println("No tiene saldo suficiente");
 		} else {
 			this.setSaldoCuentaCorriente(this.getSaldoCuentaCorriente() - cantidad);
+			BankAccount.setDineroAlmacenado(BankAccount.getDineroAlmacenado() - cantidad);
 		}
 	}
 	
@@ -37,6 +39,7 @@ public class BankAccount {
 			System.out.println("No tiene saldo suficiente");
 		} else {
 			this.setSaldoCuentaAhorros(this.getSaldoCuentaAhorros() - cantidad);
+			BankAccount.setDineroAlmacenado(BankAccount.getDineroAlmacenado() - cantidad);
 		}
 	}
 	
@@ -50,6 +53,19 @@ public class BankAccount {
         }
         return sb.toString();
     }
+	
+	// METODO PARA VER EL DINERO TOTAL
+	public void dineroTotal() {
+		double total = BankAccount.getDineroAlmacenado();
+		total = this.getSaldoCuentaCorriente() + this.getSaldoCuentaAhorros();
+		System.out.println("Su dinero total es de: " + total);
+	}
+	
+	// METODO TOTAL DINERO EN EL BANCO
+	public static void totalDinero() {
+		double totalBanco = BankAccount.getDineroAlmacenado();
+		System.out.println("El dinero total en el banco es de: " + totalBanco);
+	}
 	
 	// CONSTRUCTOR
 	public BankAccount() {
