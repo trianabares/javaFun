@@ -54,7 +54,7 @@ public class BankAccount {
         return sb.toString();
     }
 	
-	// METODO PARA VER EL DINERO TOTAL
+	// METODO PARA VER EL DINERO TOTAL DE CADA CAJA
 	public void dineroTotal() {
 		double total = BankAccount.getDineroAlmacenado();
 		total = this.getSaldoCuentaCorriente() + this.getSaldoCuentaAhorros();
