@@ -27,7 +27,7 @@ public class MainController {
 	
 	@GetMapping("/time")
 	public String time(Model model) {
-		SimpleDateFormat hora = new SimpleDateFormat("HH:mm:ss");
+		SimpleDateFormat hora = new SimpleDateFormat("h:mm a");
 		Date date = new Date();
 		
 		model.addAttribute("Hora", hora.format(date));

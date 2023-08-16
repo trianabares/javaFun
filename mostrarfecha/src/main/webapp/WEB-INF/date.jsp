@@ -6,10 +6,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Date</title>
+<script src="./javascript/javascript.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
-<body>
+<body onload="fechaActual()">
 
-<h1><c:out value="${Fecha}"></c:out></h1>
+<h1 class="fecha"><c:out value="${Fecha}"></c:out></h1>
 
 </body>
 </html>

@@ -16,3 +16,11 @@ a{
 	flex: 1;
 	font-size: 34px;
 }
+
+.fecha {
+	color: blue;
+}
+
+.hora {
+	color: green;
+}
