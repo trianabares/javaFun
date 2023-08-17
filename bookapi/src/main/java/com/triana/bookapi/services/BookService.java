@@ -50,20 +50,20 @@ public class BookService {
     }
     
     // sobrecarga de metodo de actualizar registro
-    public BookModel actualizarLibro(Long id, String title, String desc, String lang, Integer numOfPages) {
-    	BookModel libroTemporal = bookRepository.findById(id).orElse(null);
-    	if(libroTemporal != null) {
-    		libroTemporal.setDescription(desc);
-    		libroTemporal.setTitle(title);
-    		libroTemporal.setNumberOfPages(numOfPages);
-    		libroTemporal.setLanguage(lang);
-    		bookRepository.save(libroTemporal);
-    		return libroTemporal;
-    	} else {
-    		return libroTemporal;
-    	}
-    	
-    }
+//    public BookModel actualizarLibro(Long id, String title, String desc, String lang, Integer numOfPages) {
+//    	BookModel libroTemporal = bookRepository.findById(id).orElse(null);
+//    	if(libroTemporal != null) {
+//    		libroTemporal.setDescription(desc);
+//    		libroTemporal.setTitle(title);
+//    		libroTemporal.setNumberOfPages(numOfPages);
+//    		libroTemporal.setLanguage(lang);
+//    		bookRepository.save(libroTemporal);
+//    		return libroTemporal;
+//    	} else {
+//    		return libroTemporal;
+//    	}
+//    	
+//    }
     
     // Borrar libro
     public void borrarLibro(Long id) {
