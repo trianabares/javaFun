@@ -46,7 +46,7 @@
 			type="submit" value="Delete">
 	</form>
 
-
+<a href="/books">Volver</a>
 
 </body>
 </html>

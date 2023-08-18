@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Libros</title>
+<title>Editar libro</title>
 <!-- BOOTSTRAP  -->
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
@@ -22,32 +22,34 @@
 <script type="text/javascript" src="/js/app.js"></script>
 
 </head>
-<body class="container-fluid">
-<h1>All books</h1>
-
-	<table>
-		<thead>
-			<tr>
-				<th>Title</th>
-				<th>Description</th>
-				<th>Language</th>
-				<th>Number of Pages</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${books}" var="book">
-				<tr>
-					<td><c:out value="${book.title}" /></td>
-					<td><c:out value="${book.description}" /></td>
-					<td><c:out value="${book.language}" /></td>
-					<td><c:out value="${book.numberOfPages}" /></td>
-					<td><a href="/books/${book.id}">Ver libro</a></td>
-					<td><a href="/books/${book.id}/edit">Edit Book</a></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-<a href="/books/new">New Book</a>
-
+<body>
+	<h1>Edit Book</h1>
+	<form:form action="/books/${libro.id}" method="post"
+		modelAttribute="libro">
+		<input type="hidden" name="_method" value="put">
+		<p>
+			<form:label path="title">Title</form:label>
+			<form:errors path="title" />
+			<form:input path="title" />
+		</p>
+		<p>
+			<form:label path="description">Description</form:label>
+			<form:errors path="description" />
+			<form:textarea path="description" />
+		</p>
+		<p>
+			<form:label path="language">Language</form:label>
+			<form:errors path="language" />
+			<form:input path="language" />
+		</p>
+		<p>
+			<form:label path="numberOfPages">Pages</form:label>
+			<form:errors path="numberOfPages" />
+			<form:input type="number" path="numberOfPages" />
+		</p>
+		<input type="submit" value="Submit" />
+	</form:form>
+	
+	<a href="/books">Volver</a>
 </body>
 </html>
