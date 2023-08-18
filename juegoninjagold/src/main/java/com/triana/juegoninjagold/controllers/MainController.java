@@ -55,10 +55,38 @@ public class MainController {
 			sesion.setAttribute("resultados", resultados);
 			return "redirect:/gold";
 		}
-		
-		
-		
-		
+		if(lugar.equals("cave")) {
+			int cantidad = new Random().nextInt(6)+5;
+			oro += cantidad;
+			resultados.add(0,"Entraste a Cave y aumentas "+ cantidad + " oro " + formatoFecha.format(new Date()) );
+			sesion.setAttribute("gold", oro);
+			sesion.setAttribute("resultados", resultados);
+			return "redirect:/gold";
+		}
+		if(lugar.equals("house")) {
+			int cantidad = new Random().nextInt(3)+3;
+			oro += cantidad;
+			resultados.add(0,"Entraste a House y aumentas "+ cantidad + " oro " + formatoFecha.format(new Date()) );
+			sesion.setAttribute("gold", oro);
+			sesion.setAttribute("resultados", resultados);
+			return "redirect:/gold";
+		}
+		if (lugar.equals("casino")) {
+		    int cantidad = new Random().nextInt(51);  // Genera un número entre 0 y 50 
+		    boolean ganarOro = new Random().nextBoolean();  // Decide aleatoriamente si gana o pierde oro
+		    
+		    if (ganarOro) {
+		        oro += cantidad;
+		        resultados.add(0, "Entraste a Casino y aumentas " + cantidad + " oro " + formatoFecha.format(new Date()));
+		    } else {
+		        oro -= cantidad;
+		        resultados.add(0, "Entraste a Casino y pierdes " + cantidad + " oro " + formatoFecha.format(new Date()));
+		    }
+		    
+		    sesion.setAttribute("gold", oro);
+		    sesion.setAttribute("resultados", resultados);
+		    return "redirect:/gold";
+		}
 		return "redirect:/gold";
 	}
 }

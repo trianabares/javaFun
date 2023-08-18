@@ -60,31 +60,24 @@
 					<input type="hidden" name="lugar" value="casino" />
 					<button type="submit" class="btn btn-info">GOLD!</button>
 				</form>
-
 			</div>
 		</div>
-
-
 	</div>
-	<c:forEach items="${resultados }" var="resultado">
-		<c:if test="${resultado.contains('aumentas') }">
-			<p class="text-success">
-				<c:out value="${resultado }"></c:out>
-			</p>
-		</c:if>
-		
-<!-- 		por completar -->
-		<p class="text-danger">
-				<c:out value="${resultado }"></c:out>
-			</p>
-		
 
-
-
-
-	</c:forEach>
-
-
+	<div class="container">
+		<c:forEach items="${resultados }" var="resultado">
+			<c:if test="${resultado.contains('aumentas') }">
+				<p class="text-success">
+					<c:out value="${resultado }"></c:out>
+				</p>
+			</c:if>
+			<c:if test="${resultado.contains('pierdes') }">
+				<p class="text-danger">
+					<c:out value="${resultado }"></c:out>
+				</p>
+			</c:if>
+		</c:forEach>
+	</div>
 
 </body>
 </html>
