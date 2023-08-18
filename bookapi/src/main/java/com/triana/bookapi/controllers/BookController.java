@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.triana.bookapi.models.BookModel;
@@ -26,6 +27,11 @@ public class BookController {
 	
 		@Autowired
 		private BookService bookService;
+		
+		@GetMapping("/")
+	    public String redirect() {
+	        return "redirect:/books";
+	    }
 		
 		// todos los libros
 	    @GetMapping("/books")
@@ -48,6 +54,13 @@ public class BookController {
 	            bookService.createBook(book);
 	            return "redirect:/books";
 	        }
+	    }
+	    
+	    @GetMapping("/books/{id}")
+	    public String mostrarLibro(@PathVariable("id") Long id, BookModel book, Model model) {
+	    	BookModel booke = bookService.findBook(id);
+	    	model.addAttribute("book", booke);
+	        return "/books/show.jsp";
 	    }
 	    
 }
