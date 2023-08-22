@@ -1,5 +1,6 @@
 package com.triana.licencias.models;
 
+// import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,6 +16,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
@@ -25,9 +27,10 @@ public class Licencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@NotBlank
-    private String number;
+	//@NotBlank
+    private Integer number;
 	
+    @Future
 	@DateTimeFormat(pattern="yyyy-MM-dd")
     private Date expirationDate;
     
@@ -55,11 +58,11 @@ public class Licencia {
 		this.id = id;
 	}
 
-	public String getNumber() {
+	public Integer getNumber() {
 		return number;
 	}
 
-	public void setNumber(String number) {
+	public void setNumber(Integer number) {
 		this.number = number;
 	}
 
@@ -71,6 +74,11 @@ public class Licencia {
 		this.expirationDate = expirationDate;
 	}
 
+//	public String getFechaFormateada() {
+//		SimpleDateFormat fechaFormateada = new SimpleDateFormat("MM/dd/yy");
+//		return fechaFormateada.format(this.expirationDate);	
+//	}
+	
 	public String getState() {
 		return state;
 	}
@@ -111,5 +119,16 @@ public class Licencia {
 	@PreUpdate
 	protected void updatedAt() {
 		this.updatedAt = new Date();
+	}
+	
+	// METODOPARA RETORNAR NUMERO CONCATENADO CON 000
+	public String getNumberComoString() {
+		int numeroCeros = 5 - String.valueOf(this.number).length();
+		StringBuilder sb = new StringBuilder();
+		for(int i = 0; i < numeroCeros; i++) {
+			sb.append('0');
+		}
+		return String.format("%s%d", sb, this.number);
+		
 	}
 }

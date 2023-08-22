@@ -30,6 +30,7 @@
 			<tr>
 				<th>Nombre</th>
 				<th>Nro licencia</th>
+				<th>Fecha Expiración</th>
 				<th>Acciones</th>
 			</tr>
 		</thead>
@@ -37,7 +38,8 @@
 			<c:forEach items="${todos}" var="persona">
 				<tr>
 					<td><c:out value="${persona.firstName}" /> <c:out value="${persona.lastName}" /></td>
-					<td><c:out value="${persona.getLicencia().getNumber()}" /></td>
+					<td><c:out value="${persona.getLicencia().getNumberComoString()}" /></td>
+					<td> <fmt:formatDate pattern="MM-dd-yyy" value="${persona.getLicencia().getExpirationDate()}"/> </td>
 					<td><a href="/books/${book.id}/edit">Borrar</a></td>
 				</tr>
 			</c:forEach>
