@@ -2,6 +2,8 @@ package com.triana.licencias.models;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,6 +15,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="licencias")
@@ -21,8 +24,14 @@ public class Licencia {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+	
+	@NotBlank
     private String number;
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
     private Date expirationDate;
+    
+    @NotBlank(message="Por favor agrega un estado/país")
     private String state;
     
     @Column(updatable=false)

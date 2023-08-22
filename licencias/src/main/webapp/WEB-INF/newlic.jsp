@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Titulo de la plantilla</title>
+<title>Nueva Licencia</title>
 <!-- BOOTSTRAP  -->
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
@@ -22,6 +22,29 @@
 
 </head>
 <body>
-
+<div class="container">
+		<h2>Nueva Licencia</h2>
+		<form:form action="/licencias/new" method="POST" modelAttribute="licencia">
+            <div class="form-group">
+            	<form:label class="form-label" path="persona">Persona</form:label>
+	            <form:select class="form-control" path="persona">
+	            	<c:forEach items="${personas}" var="p">
+	            		<form:option value="${p.id}">${p.firstName } ${p.lastName }</form:option>
+	            	</c:forEach>
+	            </form:select>
+            </div>
+            <div class="form-group">
+                <form:label class="form-label" path="state">Estado</form:label>
+                <form:errors class="text-danger" path="state" />
+                <form:input type="text" class="form-control" path="state" />
+            </div>
+            <div class="form-group">
+                <form:label class="form-label" path="expirationDate">Fecha de expiración</form:label>
+                <form:errors class="text-danger" path="expirationDate" />
+                <form:input type="date" class="form-control" path="expirationDate" />
+            </div>
+            <button class="btn btn-success">Crear</button>
+        </form:form>
+	</div>
 </body>
 </html>
