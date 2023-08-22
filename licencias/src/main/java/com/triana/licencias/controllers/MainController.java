@@ -24,6 +24,13 @@ public class MainController {
 	@Autowired
 	private MainService mainService;
 	
+	@GetMapping("/")
+	public String root(Model viewModel) {
+		List<Persona> todosUsuarios = mainService.todasPersonas();
+		viewModel.addAttribute("todos", todosUsuarios);
+		return "index.jsp";
+	}
+	
 	@GetMapping("/persons/new")
 	public String formularioPersona(@ModelAttribute("persona") Persona persona) {
 		return "newperson.jsp";
@@ -40,15 +47,15 @@ public class MainController {
 	
 	@GetMapping("/licencias/new")
 	public String formularioLicencia(@ModelAttribute("licencia") Licencia licencia, Model viewModel) {
-		List <Persona> todosUsuarios = mainService.todasPersonas();
-		viewModel.addAttribute("personas", todosUsuarios);
+	//	List <Persona> todosUsuarios = mainService.todasPersonas();
+	//	viewModel.addAttribute("personas", todosUsuarios);
+		viewModel.addAttribute("personas", mainService.obtenerPersonasSinLic());
 		return "newlic.jsp";
 	}
 	
 	@PostMapping("/licencias/new")
-	public String crearLicencia(@Valid @ModelAttribute("licencia") Licencia licencia, BindingResult resultado, Model viewModel) {
+	public String crearLicencia(@Valid @ModelAttribute("licencia") Licencia licencia, BindingResult resultado) {
 		if(resultado.hasErrors()) {
-			viewModel.addAttribute("personas", mainService.todasPersonas());
 			return "newlic.jsp";
 		}
 		mainService.crearLicencia(licencia);

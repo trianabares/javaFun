@@ -34,4 +34,14 @@ public class MainService {
 		return licenciaRepo.save(licencia);
 	}
 
+	public List<Persona> obtenerPersonasSinLic(){
+		//return personaRepo.findByLicenciaIdIsNull();
+		return personaRepo.encontrarNoLic();
+	}
+	
+	// METODO PARA GENERAR NUMERO DE LICENCIA
+	//public int genererNumeroLic() {
+	//	
+	//}
+	
 }
