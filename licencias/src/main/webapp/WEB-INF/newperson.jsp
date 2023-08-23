@@ -38,6 +38,7 @@
             </div>
             <button class="btn btn-success">Agregar</button>
         </form:form>
+        <a class="btn" href="/">Volver</a>
 	</div>
 </body>
 </html>

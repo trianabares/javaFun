@@ -2,6 +2,7 @@ package com.triana.lenguajes.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.triana.lenguajes.models.Language;
@@ -10,7 +11,8 @@ import com.triana.lenguajes.repositories.LangRepo;
 @Service
 public class LangService {
 	
-	private final LangRepo langRepo;
+	@Autowired
+	private LangRepo langRepo;
 	
 	public LangService(LangRepo langRepo) {
 		this.langRepo = langRepo;

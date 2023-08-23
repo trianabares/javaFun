@@ -45,6 +45,7 @@
             </div>
             <button class="btn btn-success">Crear</button>
         </form:form>
+        <a class="btn" href="/">Volver</a>
 	</div>
 </body>
 </html>

@@ -23,10 +23,10 @@
 
 </head>
 <body>
+<div class="container">
+	<h1>Lenguajes</h1>
 
-	<h1>Lenguages</h1>
-
-	<table>
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>Name</th>
@@ -37,36 +37,36 @@
 		</thead>
 		<tbody>
 			<c:forEach var="language" items="${lang}">
-			    <tr>
-			        <td><a href="${language.id}"><c:out value="${language.name}"></c:out></a></td>
-			        <td><c:out value="${language.creator}"></c:out></td>
-			        <td><c:out value="${language.version}"></c:out></td>
-			        <td><a href="${language.id}/delete">delete</a><a href="${language.id}/edit">edit</a></td>
-			    </tr>
+				<tr>
+					<td><a href="${language.id}"><c:out
+								value="${language.name}"></c:out></a></td>
+					<td><c:out value="${language.creator}"></c:out></td>
+					<td><c:out value="${language.version}"></c:out></td>
+					<td><a href="${language.id}/delete">delete</a><a
+						href="${language.id}/edit">edit</a></td>
+				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	<hr>
-	<form:form action="/add" method="POST" modelAttribute="nuevolang">
-	    <table>
-	        <thead>
-	            <tr>
-	                <td>Name:</td>
-	                <td><form:errors path="name" class="text-danger" /> <form:input class="input" path="name" /></td>
-	            </tr>
-	            <tr>
-	                <td>Creator:</td>
-	                <td><form:errors path="creator" class="text-danger" /> <form:input class="input" path="creator" /></td>
-	            </tr>
-	            <tr>
-	                <td>Version:</td>
-	                <td><form:errors path="version" class="text-danger" /> <form:input class="input" type="text" path="version" /></td>
-	            </tr>
-	            <tr>
-	        		<td colspan=2><input class="input" class="button" type="submit" value="Submit"/></td>
-	        	</tr>
-	        </thead>
-	    </table>
+	<form:form action="/add" method="POST" modelAttribute="nuevolenguaje">
+		<div class="form-group">
+			<form:label class="form-label" path="name">Nombre: </form:label>
+			<form:errors class="text-danger" path="name" />
+			<form:input class="form-control" path="name" />
+		</div>
+		<div class="form-group">
+			<form:label class="form-label" path="creator">Creator: </form:label>
+			<form:errors class="text-danger" path="creator" />
+			<form:input class="form-control" path="creator" />
+		</div>
+		<div class="form-group">
+			<form:label class="form-label" path="version">Version: </form:label>
+			<form:errors class="text-danger" path="version" />
+			<form:input class="form-control" path="version" />
+		</div>
+		<button class="btn btn-success">Agregar</button>
 	</form:form>
+</div>
 </body>
 </html>

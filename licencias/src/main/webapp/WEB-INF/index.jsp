@@ -40,7 +40,13 @@
 					<td><c:out value="${persona.firstName}" /> <c:out value="${persona.lastName}" /></td>
 					<td><c:out value="${persona.getLicencia().getNumberComoString()}" /></td>
 					<td> <fmt:formatDate pattern="MM-dd-yyy" value="${persona.getLicencia().getExpirationDate()}"/> </td>
-					<td><a href="/books/${book.id}/edit">Borrar</a></td>
+					<td>
+						<a class="btn" href="/persons/${persona.id}">Ver</a>
+						<form action="/persons/${persona.id}" method="post">
+						<input type="hidden" name="_method" value="delete">
+						<input class="btn" type="submit" value="Delete">
+						</form>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>

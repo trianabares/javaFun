@@ -29,12 +29,12 @@ public class LangController {
 	}
 	
 	@GetMapping("/add")
-	public String addLang(@ModelAttribute("nuevolang") Language lang) {
+	public String addLang(@ModelAttribute("nuevolenguaje") Language lang) {
 		return "index.jsp";
 	}
 	
 	@PostMapping("/add")
-	public String addLang(@Valid @ModelAttribute("nuevolang") Language lang, BindingResult result) {
+	public String addLang(@Valid @ModelAttribute("nuevolenguaje") Language lang, BindingResult result) {
 		if(result.hasErrors()) {
 			return "index.jsp";
 		}else {
