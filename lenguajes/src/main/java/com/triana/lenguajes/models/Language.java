@@ -57,6 +57,13 @@ public class Language {
 		this.version = version;
 	}
 	
+	public Language(Long id, String name, String creator, String version) {
+		this.id = id;
+		this.name = name;
+		this.creator = creator;
+		this.version = version;
+	}
+	
 	public Long getId() {
 		return id;
 	}
