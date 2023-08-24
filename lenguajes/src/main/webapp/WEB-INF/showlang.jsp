@@ -23,31 +23,29 @@
 
 </head>
 <body>
-
 	<div class="container">
 		<div class="row">
-			<a class="mt-4 mb-3" style="margin-left: 900px;" href="/languages">Dashboard</a>
 			<div class="col">
 				<div class="my-5">
-					<c:out value="${language.name }"></c:out>
+					<h1><c:out value="${language.name }"></c:out></h1>
 				</div>
 				<div class="my-5">
-					<c:out value="${language.creator }"></c:out>
+					<h3><c:out value="${language.creator }"></c:out></h3>
 				</div>
 				<div class="my-5">
-					<c:out value="${language.version }"></c:out>
+					<h5><c:out value="${language.version }"></c:out></h5>
 				</div>
 
 			</div>
 		</div>
 		<div>
-			<a class="in-line" href="/languages/${language.id}/edit">Edit</a>
-			<form style="margin-top: 20px;" action="/languages/${language.id}"
-				method="post">
-				<input type="hidden" name="_method" value="delete"> <input
-					type="submit" value="Delete">
-			</form>
+			<a class="btn btn-info m-2" class="in-line" href="/languages/${language.id}/edit">Edit</a>
+			<form action="/languages/${language.id}" method="post">
+							<input type="hidden" name="_method" value="delete"> 
+							<input class="btn btn-warning m-2" type="submit" value="Borrar">
+			</form> 
 		</div>
+		<a class="mt-4 mb-3 btn btn-primary m-2" style="margin-left: 900px;" href="/languages">Volver</a>
 
 	</div>
 
