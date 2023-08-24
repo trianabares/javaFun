@@ -23,9 +23,10 @@
 </head>
 <body>
 
+<div class="container">
 <h1>DB Licencias</h1>
 
-	<table class="table table-hover">
+	<table class="table table-bordered">
 		<thead>
 			<tr>
 				<th>Nombre</th>
@@ -41,18 +42,18 @@
 					<td><c:out value="${persona.getLicencia().getNumberComoString()}" /></td>
 					<td> <fmt:formatDate pattern="MM-dd-yyy" value="${persona.getLicencia().getExpirationDate()}"/> </td>
 					<td>
-						<a class="btn" href="/persons/${persona.id}">Ver</a>
+						<a class="btn text-info"href="/persons/${persona.id}">Ver</a>
 						<form action="/persons/${persona.id}" method="post">
 						<input type="hidden" name="_method" value="delete">
-						<input class="btn" type="submit" value="Delete">
+						<input class="btn text-danger" type="submit" value="Delete">
 						</form>
 					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-<a href="/persons/new">Nueva Persona</a>
-<a href="/licencias/new">Nueva Licencia</a>
-
+<a class="btn btn-primary m-2" href="/persons/new">Nueva Persona</a>
+<a class="btn btn-primary m-2" href="/licencias/new">Nueva Licencia</a>
+</div>
 </body>
 </html>

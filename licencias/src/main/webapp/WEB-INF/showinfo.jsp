@@ -23,22 +23,23 @@
 
 </head>
 <body>
+<div class="container">
 	<h1>
-		<c:out value="${perons.firstName}" /> <c:out value="${peronsa.lastName}" />
+		<c:out value="${persona.firstName}" /> <c:out value="${persona.lastName}" />
 	</h1>
 
-	<p>Licence number:
+	<h5>Licence number:</h5>
 		<c:out value="${persona.getLicencia().getNumberComoString()}" />
-	</p>
-	<p>
-		Expiration date:
+	
+	<h5>Expiration date:</h5>
 		<fmt:formatDate pattern="MM-dd-yyy" value="${persona.getLicencia().getExpirationDate()}"/>
-	</p>
+	
 	<form action="/persons/${persona.id}" method="post">
 		<input type="hidden" name="_method" value="delete">
-		<input type="submit" value="Delete">
+		<input class="btn btn-danger m-2" type="submit" value="Delete">
 	</form>
 
-	<a href="/">Volver</a>
+	<a class="btn btn-primary m-2" href="/">Volver</a>
+</div>
 </body>
 </html>

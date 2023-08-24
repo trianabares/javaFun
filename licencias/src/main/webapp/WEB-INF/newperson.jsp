@@ -25,6 +25,7 @@
 <body>
 	<div class="container">
 		<h2>Nueva Persona</h2>
+		<div class="col-sm-4">
 		<form:form action="/persons/new" method="POST" modelAttribute="persona">
             <div class="form-group">
                 <form:label class="form-label" path="firstName">Nombre</form:label>
@@ -36,9 +37,10 @@
                 <form:errors class="text-danger" path="lastName" />
                 <form:input class="form-control" path="lastName" />
             </div>
-            <button class="btn btn-success">Agregar</button>
+            <button class="btn btn-success m-2">Agregar</button>
         </form:form>
-        <a class="btn" href="/">Volver</a>
+        </div>
+        <a class="btn btn-primary m-2" href="/">Volver</a>
 	</div>
 </body>
 </html>

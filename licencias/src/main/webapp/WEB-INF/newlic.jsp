@@ -24,6 +24,7 @@
 <body>
 <div class="container">
 		<h2>Nueva Licencia</h2>
+		<div class="col-sm-4">
 		<form:form action="/licencias/new" method="POST" modelAttribute="licencia">
             <div class="form-group">
             	<form:label class="form-label" path="persona">Persona</form:label>
@@ -43,9 +44,10 @@
                 <form:errors class="text-danger" path="expirationDate" />
                 <form:input type="date" class="form-control" path="expirationDate" />
             </div>
-            <button class="btn btn-success">Crear</button>
+            <button class="btn btn-success m-2">Crear</button>
         </form:form>
-        <a class="btn" href="/">Volver</a>
+        </div>
+        <a class="btn btn-primary m-2" href="/">Volver</a>
 	</div>
 </body>
 </html>
