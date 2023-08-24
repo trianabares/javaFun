@@ -1,12 +1,15 @@
 package com.triana.productosycategorias.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.triana.productosycategorias.models.CategoryModel;
+import com.triana.productosycategorias.models.ProductCategoryModel;
 import com.triana.productosycategorias.services.MainService;
 
 import jakarta.validation.Valid;
@@ -32,5 +35,13 @@ public class CategoryController {
 			}
 			mainServ.crearCategoria(categoria);
 			return "redirect:/";
+		}
+		
+		@GetMapping("/categories/{id}")
+		public String mostrarProducto(@PathVariable("id") Long id, @ModelAttribute("asociacion") ProductCategoryModel asociacion, Model modelo) {
+			CategoryModel categoria = mainServ.unaCategoria(id);
+			modelo.addAttribute("productos", mainServ.categoriasAProducto(categoria));
+			modelo.addAttribute("categoria", categoria);
+			return "showcategory.jsp";
 		}
 }

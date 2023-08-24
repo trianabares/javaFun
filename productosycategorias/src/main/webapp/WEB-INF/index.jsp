@@ -25,8 +25,30 @@
 
 <div class="container">
 	<h1>Productos y categorias</h1>
-	<a href="/products/new">Nuevo Producto</a><br>
-	<a href="/categories/new">Nueva Categoría</a>
+	<hr>
+	<div class="row">
+		<div class="col-6">
+			<h2>Todos los productos</h2>
+			<ul>
+			<c:forEach items="${productos }" var="producto">
+				<li><a href="products/${producto.id}"><c:out value="${producto.name}"></c:out></a></li>
+			</c:forEach>
+			</ul>
+		</div>
+		<div class="col-6">
+			<h2>Todos las categorias</h2>
+			<ul>
+			<c:forEach items="${categorias }" var="categoria">
+				<li><a href="categories/${categoria.id}"><c:out value="${categoria.name}"></c:out></a></li>
+			</c:forEach>
+			</ul>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<a class="btn btn-success m-2 col" href="/products/new">Nuevo Producto</a><br>
+		<a class="btn btn-warning m-2 col" href="/categories/new">Nueva Categoría</a>
+	</div>
 </div>
 
 </body>
